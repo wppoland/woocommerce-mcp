@@ -1,0 +1,78 @@
+# woocommerce-mcp
+
+A small, read-only [Model Context Protocol](https://modelcontextprotocol.io) server for **WordPress + WooCommerce**. It lets Claude (or any MCP client) answer questions about a live store — products, orders, sales, and blog posts — over the official REST APIs. No writes, no plugins to install on the store: it talks to the existing WordPress/WooCommerce REST endpoints.
+
+Built and maintained by [WPPoland](https://wppoland.com/en/) — senior WordPress & WooCommerce engineering.
+
+## Tools
+
+| Tool | What it does | Needs WooCommerce keys |
+|------|--------------|:---:|
+| `list_products` | List / search products (name, sku, price, stock, permalink) | yes |
+| `get_product` | Full details for one product by id | yes |
+| `list_orders` | Recent orders, newest first, optional status filter | yes |
+| `sales_report` | Sales totals for a period (week / month / last_month / year) | yes |
+| `search_posts` | Search published blog posts (public WP REST API) | no |
+
+Everything is **read-only**. The server never creates, edits, or deletes anything in the store.
+
+## Install & build
+
+```bash
+git clone https://github.com/wppoland/woocommerce-mcp.git
+cd woocommerce-mcp
+npm install
+npm run build
+```
+
+## Configure
+
+Set three environment variables:
+
+| Var | Required | Example |
+|-----|:---:|---------|
+| `WP_URL` | yes | `https://shop.example.com` |
+| `WC_CONSUMER_KEY` | for `wc_*` tools | `ck_xxx` |
+| `WC_CONSUMER_SECRET` | for `wc_*` tools | `cs_xxx` |
+
+Create the WooCommerce keys in **WooCommerce → Settings → Advanced → REST API → Add key** with **Read** permission. `search_posts` works without keys against any public WordPress site.
+
+> The keys are sent to your own store over HTTPS as REST query auth. Use HTTPS, and give the key **Read** access only.
+
+## Use with Claude Desktop / Claude Code
+
+Add to your MCP client config (e.g. `claude_desktop_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "woocommerce": {
+      "command": "node",
+      "args": ["/absolute/path/to/woocommerce-mcp/dist/index.js"],
+      "env": {
+        "WP_URL": "https://shop.example.com",
+        "WC_CONSUMER_KEY": "ck_xxx",
+        "WC_CONSUMER_SECRET": "cs_xxx"
+      }
+    }
+  }
+}
+```
+
+Then ask things like *"What were last month's WooCommerce sales?"* or *"List the 5 most recent orders that are on hold."*
+
+## Verify
+
+```bash
+npm run check   # builds, then asserts all five tools register (no network/credentials needed)
+```
+
+## Notes
+
+- Node 18+ (uses the built-in `fetch`).
+- Logs go to stderr so they never corrupt the stdio MCP protocol on stdout.
+- API errors are surfaced with the store's message; credentials are never echoed.
+
+## License
+
+MIT © [WPPoland](https://wppoland.com/en/)

@@ -1,0 +1,42 @@
+{
+  "name": "woocommerce-mcp",
+  "version": "0.1.0",
+  "description": "Model Context Protocol (MCP) server for WordPress and WooCommerce. Gives Claude and other AI agents read access to products, orders, sales reports and posts over the REST API.",
+  "type": "module",
+  "bin": {
+    "woocommerce-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc",
+    "check": "npm run build && node test/smoke.mjs",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "wordpress",
+    "woocommerce",
+    "claude",
+    "ai-agents",
+    "rest-api"
+  ],
+  "author": "wppoland.com",
+  "homepage": "https://wppoland.com/en/",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.0",
+    "typescript": "^5.6.0"
+  }
+}
