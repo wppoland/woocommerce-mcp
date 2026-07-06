@@ -2,7 +2,7 @@
 
 A small, read-only [Model Context Protocol](https://modelcontextprotocol.io) server for **WordPress + WooCommerce**. It lets Claude (or any MCP client) answer questions about a live store — products, orders, sales, and blog posts — over the official REST APIs. No writes, no plugins to install on the store: it talks to the existing WordPress/WooCommerce REST endpoints.
 
-Built and maintained by [WPPoland](https://wppoland.com/en/) — senior WordPress & WooCommerce engineering.
+Built and maintained by [WPPoland](https://wppoland.com/en/) — senior WordPress & WooCommerce engineering. If you need this wired into a real store stack, we build [WooCommerce ERP and API integrations](https://wppoland.com/en/woocommerce-erp-integration/) and [enterprise e-commerce architecture](https://wppoland.com/en/enterprise-solutions/) (headless, integrations, AI-ready data).
 
 ## Tools
 
