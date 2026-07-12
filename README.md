@@ -61,6 +61,16 @@ Add to your MCP client config (e.g. `claude_desktop_config.json`):
 
 Then ask things like *"What were last month's WooCommerce sales?"* or *"List the 5 most recent orders that are on hold."*
 
+## Articles (off-site)
+
+Field notes published on DEV (not duplicates of wppoland.com pages):
+
+- [A read-only MCP server for WooCommerce: what AI agents actually need from a store](https://dev.to/wppolandcom/a-read-only-mcp-server-for-woocommerce-what-ai-agents-actually-need-from-a-store-3fk6)
+- [Syncing a wholesaler's API into WooCommerce without overselling or melting the server](https://dev.to/wppolandcom/syncing-a-wholesalers-api-into-woocommerce-without-overselling-or-melting-the-server-38ao)
+- [Twelve months after migrating wppoland.com from WordPress to Astro on Cloudflare Pages](https://dev.to/wppolandcom/twelve-months-after-migrating-wppolandcom-from-wordpress-to-astro-on-cloudflare-pages-11fi)
+
+Show HN: [discussion](https://news.ycombinator.com/item?id=48815903)
+
 ## Verify
 
 ```bash
