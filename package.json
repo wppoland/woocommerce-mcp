@@ -1,6 +1,6 @@
 {
-  "name": "woocommerce-mcp",
-  "version": "0.1.0",
+  "name": "@wppoland/woocommerce-mcp",
+  "version": "0.1.1",
   "description": "Model Context Protocol (MCP) server for WordPress and WooCommerce. Gives Claude and other AI agents read access to products, orders, sales reports and posts over the REST API.",
   "type": "module",
   "mcpName": "io.github.wppoland/woocommerce-mcp",

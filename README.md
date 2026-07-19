@@ -18,6 +18,15 @@ Everything is **read-only**. The server never creates, edits, or deletes anythin
 
 ## Install & build
 
+From npm (package name is scoped - the unscoped `woocommerce-mcp` name is locked on the registry):
+
+```bash
+npm install -g @wppoland/woocommerce-mcp
+# or: npx @wppoland/woocommerce-mcp
+```
+
+From source:
+
 ```bash
 git clone https://github.com/wppoland/woocommerce-mcp.git
 cd woocommerce-mcp

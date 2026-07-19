@@ -1,0 +1,42 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.wppoland/woocommerce-mcp",
+  "description": "Read-only MCP server for WordPress + WooCommerce products, orders, sales, and posts.",
+  "repository": {
+    "url": "https://github.com/wppoland/woocommerce-mcp",
+    "source": "github"
+  },
+  "version": "0.1.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@wppoland/woocommerce-mcp",
+      "version": "0.1.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "WP_URL",
+          "description": "Base URL of the WordPress / WooCommerce store (HTTPS)",
+          "isRequired": true,
+          "format": "string"
+        },
+        {
+          "name": "WC_CONSUMER_KEY",
+          "description": "WooCommerce REST API consumer key (Read permission)",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": true
+        },
+        {
+          "name": "WC_CONSUMER_SECRET",
+          "description": "WooCommerce REST API consumer secret (Read permission)",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
