@@ -70,6 +70,10 @@ Add to your MCP client config (e.g. `claude_desktop_config.json`):
 
 Then ask things like *"What were last month's WooCommerce sales?"* or *"List the 5 most recent orders that are on hold."*
 
+## Docs on wppoland.com
+
+- [WooCommerce MCP open source (read-only): release and ops guide](https://wppoland.com/en/woocommerce-mcp-open-source-read-only/) - npm scope, registry, Glama, and how we ship updates without write tools
+
 ## Articles (off-site)
 
 Field notes published on DEV (not duplicates of wppoland.com pages):
