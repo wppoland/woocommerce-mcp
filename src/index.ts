@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
- * woocommerce-mcp — a Model Context Protocol server for WordPress + WooCommerce.
+ * woocommerce-mcp: a Model Context Protocol server for WordPress + WooCommerce.
  *
  * Gives Claude (and any MCP client) read access to a store over the public
  * WordPress and authenticated WooCommerce REST APIs: products, single product,
- * recent orders, a sales report, and blog posts. Read-only by design — it never
+ * recent orders, a sales report, and blog posts. Read-only by design: it never
  * writes to the store.
  *
  * Configure with env vars:
@@ -12,7 +12,7 @@
  *   WC_CONSUMER_KEY     WooCommerce REST API key        (required for wc_* tools)
  *   WC_CONSUMER_SECRET  WooCommerce REST API secret     (required for wc_* tools)
  *
- * Built by wppoland.com — WordPress & WooCommerce engineering.
+ * Built by wppoland.com. WordPress and WooCommerce engineering.
  */
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
@@ -59,7 +59,7 @@ async function apiGet(
     let detail = "";
     try {
       const body = (await res.json()) as { message?: string };
-      detail = body?.message ? ` — ${body.message}` : "";
+      detail = body?.message ? `: ${body.message}` : "";
     } catch {
       /* ignore non-JSON error bodies */
     }
@@ -218,7 +218,7 @@ async function main(): Promise<void> {
 
 // Only start the stdio server when run directly, not when imported (tests import createServer).
 // pathToFileURL, not `file://${argv[1]}`: on Windows argv[1] is `C:\...\index.js`,
-// which naive concatenation turns into `file://C:\...` — never equal to the real
+// which naive concatenation turns into `file://C:\...`, never equal to the real
 // `file:///C:/.../index.js`, so main() would silently never run.
 const invokedDirectly = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
 if (invokedDirectly) {
