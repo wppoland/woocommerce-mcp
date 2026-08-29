@@ -16,6 +16,7 @@
  */
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { pathToFileURL } from "node:url";
 import { z } from "zod";
 
 export const VERSION = "0.1.0";
@@ -216,7 +217,10 @@ async function main(): Promise<void> {
 }
 
 // Only start the stdio server when run directly, not when imported (tests import createServer).
-const invokedDirectly = process.argv[1] && import.meta.url === `file://${process.argv[1]}`;
+// pathToFileURL, not `file://${argv[1]}`: on Windows argv[1] is `C:\...\index.js`,
+// which naive concatenation turns into `file://C:\...` — never equal to the real
+// `file:///C:/.../index.js`, so main() would silently never run.
+const invokedDirectly = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
 if (invokedDirectly) {
   main().catch((err) => {
     console.error(err);
