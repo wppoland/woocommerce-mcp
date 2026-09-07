@@ -21,4 +21,4 @@ for (const t of expected) {
   assert.ok(names.includes(t), `tool "${t}" not registered (found: ${names.join(", ") || "none"})`);
 }
 
-console.log(`OK woocommerce-mcp v${VERSION} — ${names.length} tools registered: ${names.join(", ")}`);
+console.log(`OK woocommerce-mcp v${VERSION} - ${names.length} tools registered: ${names.join(", ")}`);

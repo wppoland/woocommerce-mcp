@@ -24,7 +24,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "check": "npm run build && node test/smoke.mjs",
+    "check": "npm run build && node test/smoke.mjs && node test/entrypoint.mjs",
     "start": "node dist/index.js",
     "prepublishOnly": "npm run build"
   },
