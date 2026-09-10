@@ -19,7 +19,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { pathToFileURL } from "node:url";
 import { z } from "zod";
 
-export const VERSION = "0.1.0";
+export const VERSION = "0.1.1";
 
 interface Config {
   wpUrl: string;
